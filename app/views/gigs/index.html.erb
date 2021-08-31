@@ -1,0 +1,7 @@
+<% @gigs.each do |gig| %>
+  <p><%= gig.name %></p>
+<% end %>
+
+<% if policy(Gig).create? %>
+  <%= link_to "New gig", new_gig_path %>
+<% end %>

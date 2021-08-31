@@ -15,7 +15,7 @@ puts "---------------------------------------------------------------"
 Student.destroy_all
 
 puts "---------------------------------------------------------------"
-puts "-- Populating new Students... ---------------------------------"
+puts "-- Populating new chimps... -----------------------------------"
 puts "---------------------------------------------------------------"
 
 50.times do |i|
@@ -28,6 +28,16 @@ puts "---------------------------------------------------------------"
 
   Student.create!(username: username, name: name, picture_url: picture, opt_in: 1, description: description, batch: batch)
 end
+
+puts "---------------------------------------------------------------"
+puts "-- Populating chimp masters -----------------------------------"
+puts "---------------------------------------------------------------"
+
+User.destroy_all
+User.create!(email: "p@gig.com", password: "123123")
+User.create!(email: "h@gig.com", password: "123123")
+User.create!(email: "a@gig.com", password: "123123")
+User.create!(email: "t@gig.com", password: "123123")
 
 puts "---------------------------------------------------------------"
 puts "-- Finished! over to you Boss ---------------------------------"
