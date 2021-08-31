@@ -26,17 +26,17 @@ ActiveRecord::Schema.define(version: 2021_08_31_144756) do
     t.index ["user_id"], name: "index_gigs_on_user_id"
   end
 
-  create_table "join_student_skills", force: :cascade do |t|
-    t.bigint "student_id", null: false
-    t.bigint "skill_id", null: false
-    t.index ["skill_id"], name: "index_join_student_skills_on_skill_id"
-    t.index ["student_id"], name: "index_join_student_skills_on_student_id"
-  end
-
   create_table "skills", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "student_skills", force: :cascade do |t|
+    t.bigint "student_id", null: false
+    t.bigint "skill_id", null: false
+    t.index ["skill_id"], name: "index_student_skills_on_skill_id"
+    t.index ["student_id"], name: "index_student_skills_on_student_id"
   end
 
   create_table "students", force: :cascade do |t|
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 2021_08_31_144756) do
   end
 
   add_foreign_key "gigs", "users"
-  add_foreign_key "join_student_skills", "skills"
-  add_foreign_key "join_student_skills", "students"
+  add_foreign_key "student_skills", "skills"
+  add_foreign_key "student_skills", "students"
   add_foreign_key "users", "students"
 end
