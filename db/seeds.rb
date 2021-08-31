@@ -32,3 +32,9 @@ end
 puts "---------------------------------------------------------------"
 puts "-- Finished! over to you Boss ---------------------------------"
 puts "---------------------------------------------------------------"
+
+User.destroy_all
+User.create!(email: "p@gmail.com", password: "123123")
+User.create!(email: "h@hotmail.com", password: "123123")
+User.create!(email: "a@gmail.com", password: "123123")
+User.create!(email: "t@hotmail.com", password: "123123")
