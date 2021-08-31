@@ -5,6 +5,8 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
+  opacity: 0.8;
+  border-radius: 5px;
 }
 
 .card-product img {
@@ -16,17 +18,21 @@
 .card-product h2 {
   font-size: 16px;
   font-weight: bold;
-  margin: 0;
+  margin: 10px;
 }
 
 .card-product p {
   font-size: 12px;
   line-height: 1.4;
   opacity: .7;
-  margin-bottom: 0;
-  margin-top: 8px;
 }
 
 .card-product .card-product-infos {
   padding: 16px;
+}
+
+.card-product:hover {
+  opacity: 1;
+    box-shadow: none;
+
 }
