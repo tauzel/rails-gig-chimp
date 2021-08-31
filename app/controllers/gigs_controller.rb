@@ -1,11 +1,12 @@
 class GigsController < ApplicationController
-  # def index
-  #   @gigs = policy_scope(Gig)
-  # end
+  before_action :set_gig, only: [:show, :edit, :update, :destroy]
+
+  def index
+    @gigs = policy_scope(Gig)
+  end
 
   # GET /gig/1
   def show
-    @gig = Gig.find(params[:id])
   end
 
   # GET /gigs/new
@@ -22,6 +23,8 @@ class GigsController < ApplicationController
   def create
     @gig = Gig.new(gig_params)
     @gig.user = current_user
+
+    authorize @gig
 
     if @gig.save
       redirect_to @gig, notice: 'Gig was successfully created.'
@@ -47,14 +50,14 @@ class GigsController < ApplicationController
 
   private
 
-    # Use callbacks to share common setup or constraints between actions.
+  # Use callbacks to share common setup or constraints between actions.
   def set_gig
     @gig = Gig.find(params[:id])
     authorize @gig
   end
 
-    # Only allow a list of trusted parameters through.
+  # Only allow a list of trusted parameters through.
   def gig_params
-    params.require(:gigs).permit(:name, :start, :end, :description)
+    params.require(:gig).permit(:name, :start, :end, :description)
   end
 end

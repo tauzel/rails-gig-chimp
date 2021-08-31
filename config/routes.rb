@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :students, only: [:index, :show]
-  resources :gigs, only: [:show, :create, :destroy, :update]
+  resources :gigs
 
   #  resources :users, only: :show do
   #   resources :gigs,
