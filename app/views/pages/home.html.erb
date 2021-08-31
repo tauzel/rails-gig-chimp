@@ -1,2 +1,18 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+
+<div class="container">
+
+  <% @students.each do |student| %>
+
+    <div class="card-product">
+      <%= image_tag student.picture_url, alt: "", class: "rounded"%>
+      <div class="card-product-infos">
+        <h2><%= student.name %></h2>
+        <p><%= student.description %></p>
+      </div>
+    </div>
+
+  <% end %>
+
+</div>
