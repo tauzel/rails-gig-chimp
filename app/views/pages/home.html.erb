@@ -4,14 +4,15 @@
   <div class="row">
 
   <% @students.each do |student| %>
-    <div class="col-sm">
+    <div class="col-sm-4">
       <div class="card-product position-relative">
-          <a href="#" class="stretched-link"></a>
+        <a href="#" class="product-link">
           <%= image_tag student.picture_url, alt: "", class: "rounded"%>
           <div class="card-product-infos">
             <h2><%= student.name %></h2>
-            <p><%= student.description %></p>
+            <p class="text-secondary"><%= student.description %></p>
           </div>
+        </a>
       </div>
     </div>
   <% end %>
