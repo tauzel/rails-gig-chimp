@@ -5,3 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'faker'
+
+50.times do
+  name = Faker::Name.name
+  username = Faker::Internet.username(specifier: name)
+  description = Faker::Hipster.paragraph(sentence_count: 3)
+  picture = "https://kitt.lewagon.com/placeholder/users/random"
+  batch = rand(1..683)
+
+  Student.create!(username: username, name: name, picture_url: picture, opt_in: 1, description: description, batch: batch)
+end
