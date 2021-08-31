@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang='en'>
   <head>
-    <title>RailsGigChimp</title>
+    <title>🐵 GigChimp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name='description' content='SEO-friendly description of your webpage'>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,12 +16,14 @@
 
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
-
   <body>
+
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
+
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+
     <%= yield %>
   </body>
 </html>

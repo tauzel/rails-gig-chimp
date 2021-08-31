@@ -8,6 +8,12 @@
   opacity: 0.8;
   border-radius: 5px;
   margin-top: 20px;
+
+  &:hover {
+    opacity: 1;
+    box-shadow: none;
+    cursor: pointer;
+  }
 }
 
 .card-product img {
@@ -32,8 +38,11 @@
   padding: 16px;
 }
 
-.card-product:hover {
+.card-clicked {
   opacity: 1;
-    box-shadow: none;
-
+  box-shadow: none;
+  box-shadow: 0 0 15px yellow;
+  &:hover{
+    box-shadow: 0 0 15px yellow;
+  }
 }
