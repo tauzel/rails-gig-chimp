@@ -8,13 +8,20 @@
 
 require 'faker'
 
-puts 'Deleting database content'
+
+puts "---------------------------------------------------------------"
+puts "-- Destroying existing Students... ----------------------------"
+puts "---------------------------------------------------------------"
+
 Student.destroy_all
 
-puts 'Generating new students'
+puts "---------------------------------------------------------------"
+puts "-- Populating new Students... ---------------------------------"
+puts "---------------------------------------------------------------"
 
 50.times do |i|
   name = Faker::Name.name
+  puts "Created #{name}"
   username = Faker::Internet.username(specifier: name)
   description = Faker::Hipster.paragraph(sentence_count: 3)
   picture = "https://kitt.lewagon.com/placeholder/users/random#{i}"
@@ -23,4 +30,6 @@ puts 'Generating new students'
   Student.create!(username: username, name: name, picture_url: picture, opt_in: 1, description: description, batch: batch)
 end
 
-puts 'All done!'
+puts "---------------------------------------------------------------"
+puts "-- Finished! over to you Boss ---------------------------------"
+puts "---------------------------------------------------------------"
