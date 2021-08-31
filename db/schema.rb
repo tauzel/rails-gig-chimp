@@ -21,6 +21,17 @@ ActiveRecord::Schema.define(version: 2021_08_30_183416) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "students", force: :cascade do |t|
+    t.string "username", null: false
+    t.string "name", null: false
+    t.string "picture_url"
+    t.boolean "opt_in", default: true, null: false
+    t.text "description"
+    t.integer "batch"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
