@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_31_101059) do
+ActiveRecord::Schema.define(version: 2021_08_31_100527) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "gigs", force: :cascade do |t|
+    t.string "name"
+    t.date "start"
+    t.date "end"
+    t.string "description"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_gigs_on_user_id"
+  end
 
   create_table "skills", force: :cascade do |t|
     t.string "name"
@@ -30,6 +41,7 @@ ActiveRecord::Schema.define(version: 2021_08_31_101059) do
     t.integer "batch"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["username"], name: "index_students_on_username", unique: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -47,5 +59,6 @@ ActiveRecord::Schema.define(version: 2021_08_31_101059) do
     t.index ["student_id"], name: "index_users_on_student_id"
   end
 
+  add_foreign_key "gigs", "users"
   add_foreign_key "users", "students"
 end
