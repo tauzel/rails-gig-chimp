@@ -1,18 +1,21 @@
-<h1>Pages#home</h1>
+<h1>Build your team</h1>
 
 <div class="container">
+  <div class="row">
 
   <% @students.each do |student| %>
-
-    <div class="card-product">
-      <%= image_tag student.picture_url, alt: "", class: "rounded"%>
-      <div class="card-product-infos">
-        <h2><%= student.name %></h2>
-        <p><%= student.description %></p>
+    <div class="col-sm">
+      <div class="card-product position-relative">
+          <a href="#" class="stretched-link"></a>
+          <%= image_tag student.picture_url, alt: "", class: "rounded"%>
+          <div class="card-product-infos">
+            <h2><%= student.name %></h2>
+            <p><%= student.description %></p>
+          </div>
       </div>
     </div>
-
   <% end %>
+  </div>
 
 </div>
 
