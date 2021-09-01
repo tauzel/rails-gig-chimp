@@ -1,0 +1,22 @@
+/* BTN-RAINBOW */
+.btn-rainbow {
+  background: linear-gradient(to bottom right, #FAAD80, #FF6767, #FF3D68, #A73489);
+  color: white;
+  text-shadow: 1px 1px 2px gray;
+  padding: 15px 30px;
+  border-radius: 10px;
+  opacity: 0.8;
+  display: inline-block;
+  border: none;
+  text-decoration: none;
+  transition: ease 0.5s;
+  font-size: large;
+
+  &:hover {
+    opacity: 1;
+    color: white;
+    text-decoration: none;
+    box-shadow: 10px 10px 10px yellow;
+    margin: 0 10px 0 0;
+  }
+}

@@ -1,5 +1,6 @@
 class GigsController < ApplicationController
   before_action :set_gig, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: :new
 
   def index
     @gigs = policy_scope(Gig)
