@@ -1,6 +1,20 @@
+<div class="d-flex justify-content-between align-items-center">
+  <h3>💪 Your selection (<%= params[:id].size %>) 🐱‍👤 </h3>
+  <div>
+    <% params[:id].each do |id| %>
+      <%= link_to '', method: :get, class: 'ml-3' do %>
+        <%= image_tag Student.find(id).picture_url, alt: '', class: 'avatar-large avatar-bordered' %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<br>
+
 <%= simple_form_for(@gig) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
 
   <div class="form-inputs">
     <%= f.input :name %>
@@ -16,6 +30,10 @@
 
   <div class="form-inputs">
     <%= f.input :description %>
+  </div>
+
+  <div class="form-inputs">
+    <%= f.input :students, type: :hidden %>
   </div>
 
   <div class="form-actions">

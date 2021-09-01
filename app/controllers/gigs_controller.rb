@@ -13,6 +13,7 @@ class GigsController < ApplicationController
   # GET /gigs/new
   def new
     @gig = Gig.new
+    @students_id = params[:id]
     authorize @gig
   end
 
