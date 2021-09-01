@@ -8,31 +8,51 @@
 
 require 'faker'
 
+# --- DESTROY
+
 # Destroy students
 puts "---------------------------------------------------------------"
 puts "-- Destroying existing Students... ----------------------------"
 puts "---------------------------------------------------------------"
 Student.destroy_all
+puts "Done!"
 
 # Destroy gigs
 puts "---------------------------------------------------------------"
 puts "-- Destroying existing Gigs... --------------------------------"
 puts "---------------------------------------------------------------"
 Gig.destroy_all
+puts "Done!"
 
 # Destroy users
 puts "---------------------------------------------------------------"
 puts "-- Destroying existing Users... -------------------------------"
 puts "---------------------------------------------------------------"
 User.destroy_all
+puts "Done!"
 
 # Destroy skills
 puts "---------------------------------------------------------------"
 puts "-- Destroying existing Skills... ------------------------------"
 puts "---------------------------------------------------------------"
 Skill.destroy_all
+puts "Done!"
 
-# Create new students
+# --- CREATE
+
+# Create Skills
+puts "---------------------------------------------------------------"
+puts "-- Populating new students... ---------------------------------"
+puts "---------------------------------------------------------------"
+
+20.times do
+  skill = Faker::ProgrammingLanguage.unique.name
+  Skill.create!(name: skill)
+  puts "Created skill #{name}"
+end
+puts "Done!"
+
+# Create Students
 puts "---------------------------------------------------------------"
 puts "-- Populating new students... ---------------------------------"
 puts "---------------------------------------------------------------"
@@ -48,7 +68,7 @@ puts "---------------------------------------------------------------"
   puts "Created student #{name}"
 end
 
-# Create users
+# Create Users
 puts "---------------------------------------------------------------"
 puts "-- Populating chimp masters -----------------------------------"
 puts "---------------------------------------------------------------"
@@ -60,7 +80,7 @@ User.create!(email: "t@gig.com", password: "123123")
 
 puts "Users created"
 
-# Create gigs
+# Create Gigs
 puts "---------------------------------------------------------------"
 puts "-- Populating new gigs... -------------------------------------"
 puts "---------------------------------------------------------------"
