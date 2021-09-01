@@ -1,5 +1,6 @@
 class GigsController < ApplicationController
   before_action :set_gig, only: [:show, :edit, :update, :destroy]
+  before_action :build_students_array, only: [:new, :create]
   skip_before_action :authenticate_user!, only: :new
 
   def index
@@ -24,11 +25,11 @@ class GigsController < ApplicationController
   def create
     @gig = Gig.new(gig_params)
     @gig.user = current_user
-
+    @gig.students = @students
     authorize @gig
 
     if @gig.save
-      redirect_to @gig, notice: 'Gig was successfully created.'
+      redirect_to gigs_path, notice: 'Gig was successfully created.'
     else
       render :new
     end
@@ -37,7 +38,7 @@ class GigsController < ApplicationController
   # PATCH/PUT /gigs/1
   def update
     if @gig.update(gig_params)
-      redirect_to @gig, notice: 'Gig was successfully updated.'
+      redirect_to gigs_path, notice: 'Gig was successfully updated.'
     else
       render :edit
     end
@@ -46,7 +47,7 @@ class GigsController < ApplicationController
   # DELETE /gigs/1
   def destroy
     @gig.destroy
-    redirect_to gigs_url, notice: 'Gig was successfully destroyed.'
+    redirect_to gigs_path, notice: 'Gig was successfully destroyed.'
   end
 
   private
@@ -60,5 +61,10 @@ class GigsController < ApplicationController
   # Only allow a list of trusted parameters through.
   def gig_params
     params.require(:gig).permit(:name, :start, :end, :description)
+  end
+
+  def build_students_array
+    # where method can directly match all instances of an array
+    @students = Student.where(id: params[:student_id])
   end
 end

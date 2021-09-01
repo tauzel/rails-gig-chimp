@@ -12,3 +12,23 @@
 @import "components/index";
 @import "pages/index";
 @import "pages/show";
+
+a {
+  text-decoration: none;
+  opacity: 0.8;
+
+  &:hover {
+    opacity: 1;
+    box-shadow: none;
+    text-decoration: none;
+  }
+}
+
+ul a {
+  color: gray;
+  transition: ease 0.5s;
+
+  &:hover {
+  font-size: larger;
+  }
+}
