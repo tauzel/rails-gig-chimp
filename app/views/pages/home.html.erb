@@ -1,12 +1,45 @@
 
 <div class="container">
 
-<div class="d-flex justify-content-between mb-3 mt-3">
-  <div class="d-flex align-items-center">
-    <h1 class="mr-3">Build your team</h1>
-    <h2 id="counter"></h2>
+  <div class="d-flex justify-content-between mb-3 mt-3">
+
+    <div class="d-flex align-items-center">
+      <h1 class="mr-3">Build your team</h1>
+      <h2 id="counter"></h2>
+    </div>
+
+    <%= link_to new_gig_path,
+      method: :get,
+      id: 'create-btn',
+      class: 'btn-rainbow' do %>
+      Create
+    <% end %>
+
   </div>
 
+  <div class="row" id="card-container">
+
+    <% @students.first(20).each do |student| %>
+
+      <div class="col-sm-4">
+
+        <div class="card-product position-relative" data-student-id=<%= student.id %>>
+
+          <a href='' class="product-link">
+            <%= image_tag student.picture_url, alt: "", class: "rounded"%>
+
+            <div class="card-product-infos">
+              <h2><%= student.name %></h2>
+              <p class="text-secondary"><%= student.description %></p>
+            </div>
+
+          </a>
+        </div>
+
+      </div>
+    <% end %>
+    
+=======
   <%= link_to new_gig_path,
     method: :get,
     id: 'create-btn',
@@ -34,6 +67,7 @@
       </div>
     </div>
   <% end %>
+>>>>>>> bbefca8f7a5bd30b1479c012494cc8b7f2d5dac8
   </div>
 </div>
 
