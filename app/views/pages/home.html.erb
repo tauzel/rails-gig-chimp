@@ -17,16 +17,16 @@
 
   <div class="row" id="card-container">
 
-  <% @students.first(10).each do |student| %>
-    <div class="col-sm">
-
+  <% @students.first(20).each do |student| %>
+    <div class="col-sm-4">
       <div class="card-product position-relative" data-student-id=<%= student.id %>>
-
+        <a href="#" class="product-link">
           <%= image_tag student.picture_url, alt: "", class: "rounded"%>
           <div class="card-product-infos">
             <h2><%= student.name %></h2>
-            <p><%= student.description %></p>
+            <p class="text-secondary"><%= student.description %></p>
           </div>
+        </a>
       </div>
 
     </div>

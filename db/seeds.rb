@@ -8,36 +8,68 @@
 
 require 'faker'
 
+# Destroy students
 puts "---------------------------------------------------------------"
 puts "-- Destroying existing Students... ----------------------------"
 puts "---------------------------------------------------------------"
-
 Student.destroy_all
 
+# Destroy gigs
 puts "---------------------------------------------------------------"
-puts "-- Populating new chimps... -----------------------------------"
+puts "-- Destroying existing Gigs... --------------------------------"
+puts "---------------------------------------------------------------"
+Gig.destroy_all
+
+# Destroy users
+puts "---------------------------------------------------------------"
+puts "-- Destroying existing Users... -------------------------------"
+puts "---------------------------------------------------------------"
+User.destroy_all
+
+# Create new students
+puts "---------------------------------------------------------------"
+puts "-- Populating new students... ---------------------------------"
 puts "---------------------------------------------------------------"
 
 50.times do |i|
   name = Faker::Name.name
-  puts "Created #{name}"
   username = Faker::Internet.username(specifier: name)
   description = Faker::Hipster.paragraph(sentence_count: 3)
   picture = "https://kitt.lewagon.com/placeholder/users/random#{i}"
   batch = rand(1..683)
 
   Student.create!(username: username, name: name, picture_url: picture, opt_in: 1, description: description, batch: batch)
+  puts "Created student #{name}"
 end
 
+# Create users
 puts "---------------------------------------------------------------"
 puts "-- Populating chimp masters -----------------------------------"
 puts "---------------------------------------------------------------"
 
-User.destroy_all
 User.create!(email: "p@gig.com", password: "123123")
 User.create!(email: "h@gig.com", password: "123123")
 User.create!(email: "a@gig.com", password: "123123")
 User.create!(email: "t@gig.com", password: "123123")
+
+puts "Users created"
+
+# Create gigs
+puts "---------------------------------------------------------------"
+puts "-- Populating new gigs... -------------------------------------"
+puts "---------------------------------------------------------------"
+
+users = User.all
+10.times do
+  master_id = users.sample.id
+  name = Faker::Military.space_force_rank
+  start_date = Faker::Date.between(from: rand(0..10).days.ago, to: rand(0..3).days.from_now)
+  end_date = start_date + rand(3..10).days
+  description = Faker::Quote.famous_last_words
+
+  Gig.create!(user_id: master_id, name: name, start: start_date, end: end_date, description: description)
+  puts "Created gig #{name}"
+end
 
 puts "---------------------------------------------------------------"
 puts "-- Finished! over to you Boss ---------------------------------"
