@@ -1,0 +1,36 @@
+<div class="container mt-3">
+
+  <div class="d-flex justify-content-between">
+    <h1><%= @gig.name %></h1>
+    <div>
+      <strong>Chimp master</strong>
+      <p><%= @gig.user.name %></p>
+    </div>
+  </div>
+  <ul class="list-group">
+
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      Start: <%= @gig.start %>
+    </li>
+
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      End: <%= @gig.start %>
+    </li>
+
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      Description: <%= @gig.description %>
+    </li>
+
+    <li class="list-group-item d-flex align-items-center">
+      <% @gig.students.each do |student| %>
+
+        <%= link_to student_path(student.id), method: :get, class: 'css_class' do %>
+          <%= image_tag student.picture_url, alt: '', class: 'avatar avatar-bordered mr-3'%>
+        <% end %>
+
+      <% end %>
+    </li>
+  </ul>
+  <br>
+  <%= link_to 'Go back', gigs_path, class: 'btn btn-light' %>
+</div>

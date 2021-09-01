@@ -37,7 +37,7 @@ cardsParent.addEventListener("click", (event) => {
   // rebuild url with studentsId
   let createBtnUrl = createBtnBaseUrl
   if (studentsId) {
-    studentsId.forEach(id => createBtnUrl += `id[]=${id}&`)
+    studentsId.forEach(id => createBtnUrl += `student_id[]=${id}&`)
     // remove ending '&' from url
     createBtnUrl = createBtnUrl.slice(0, -1)
   }

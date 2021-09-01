@@ -21,7 +21,7 @@
   <% @students.first(20).each do |student| %>
     <div class="col-sm-4">
       <div class="card-product position-relative" data-student-id=<%= student.id %>>
-        <a href="#" class="product-link">
+        <a href='' class="product-link">
           <%= image_tag student.picture_url, alt: "", class: "rounded"%>
           <div class="card-product-infos">
             <h2><%= student.name %></h2>

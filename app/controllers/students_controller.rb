@@ -1,4 +1,6 @@
 class StudentsController < ApplicationController
+  before_action :skip_pundit?, only: [:index, :show]
+
   def index
     @students = Student.all
   end
