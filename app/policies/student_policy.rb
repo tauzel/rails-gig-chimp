@@ -6,7 +6,7 @@ class StudentPolicy < ApplicationPolicy
   end
 
   def create?
-    true
+    owner_or_admin?
   end
 
   def show?
