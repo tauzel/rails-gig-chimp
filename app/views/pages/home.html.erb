@@ -14,24 +14,24 @@
   </div>
 
   <div class="row" id="card-container">
-  <% @students.first(20).each do |student| %>
-    <div class="col-sm-4">
-      <div class="card-product position-relative" data-student-id=<%= student.id %>>
-        <a href='' class="product-link">
-          <%= image_tag student.picture_url, alt: "", class: "rounded"%>
-          <div class="card-product-infos d-flex flex-column justify-content-between">
-            <h2><%= student.name %></h2>
-            <p class="text-muted">Batch #<%= student.batch %></p>
-            <p>
-            <% student.skills.each do |skill| %>
-              <span class="badge rounded-pill bg-secondary text-light"><%= skill.name %></span>
-            <% end %>
-            </p>
-          </div>
-        </a>
+    <% @students.first(20).each do |student| %>
+      <div class="col col-12 col-md-6 col-lg-4">
+        <div class="card-product position-relative" data-student-id=<%= student.id %>>
+          <a href='' class="product-link">
+            <%= image_tag student.picture_url, alt: "", class: "rounded"%>
+            <div class="card-product-infos d-flex flex-column justify-content-between">
+              <h2><%= student.name %></h2>
+              <p class="text-muted">Batch #<%= student.batch %></p>
+              <p>
+              <% student.skills.each do |skill| %>
+                <span class="badge rounded-pill bg-secondary text-light"><%= skill.name %></span>
+              <% end %>
+              </p>
+            </div>
+          </a>
+        </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
   </div>
 </div>
 
