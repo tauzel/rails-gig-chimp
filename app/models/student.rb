@@ -11,7 +11,7 @@ class Student < ApplicationRecord
   # scope :available, -> { where(...) }
 
   def self.available(start_date, end_date)
-    conflict_gigs = Gig.where("'end' > ? AND start < ?", start_date, end_date)
+    conflict_gigs = Gig.where("ends_at > ? AND starts_at < ?", start_date, end_date)
     busy_students = conflict_gigs.flat_map(&:student_ids)
     where.not(id: busy_students)
   end

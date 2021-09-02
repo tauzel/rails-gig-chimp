@@ -60,7 +60,7 @@ class GigsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def gig_params
-    params.require(:gig).permit(:name, :start, :end, :description)
+    params.require(:gig).permit(:name, :starts_at, :ends_at, :description)
   end
 
   def build_students_array
