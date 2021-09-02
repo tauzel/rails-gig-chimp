@@ -2,7 +2,7 @@
   <br>
   <%= image_tag @student.picture_url, alt: '', class: 'avatar-large'%>
   <h2><%= @student.name %></h2>
-  <p class="text-secondary"><%= @student.batch %></p>
+  <p class="text-secondary">Batch #<%= @student.batch %></p>
   <p class="text-secondary"><% @student.skills.each do |skill| %>
     <span class="badge badge-pill badge-secondary"><%= skill.name %></span>
   <% end %></p>
