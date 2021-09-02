@@ -1,10 +1,11 @@
 <div class="container">
   <br>
-  <%= image_tag @student.picture_url, alt: '', class: 'avatar-large'%>
+  <%= image_tag @student.picture_url, alt: '', class: 'avatar-larger'%>
   <h2><%= @student.name %></h2>
   <p class="text-secondary">Batch #<%= @student.batch %></p>
   <p class="text-secondary"><% @student.skills.each do |skill| %>
     <span class="badge badge-pill badge-secondary"><%= skill.name %></span>
   <% end %></p>
   <p class="text-secondary"><%= @student.description %></p>
+  <%= link_to 'Go back', root_path, class: 'btn btn-light' %>
 </div>
