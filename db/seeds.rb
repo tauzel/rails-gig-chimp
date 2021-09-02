@@ -139,7 +139,7 @@ puts "---------------------------------------------------------------"
   master_id = users.sample.id
   name = Faker::Military.space_force_rank
   start_date = Faker::Date.between(from: rand(0..10).days.ago, to: rand(0..3).days.from_now)
-  end_date = start_date + rand(3..10).days
+  end_date = start_date + rand(5..10).days
   description = Faker::Quote.famous_last_words
 
   Gig.create!(user_id: master_id, name: name, start: start_date, end: end_date, description: description)
