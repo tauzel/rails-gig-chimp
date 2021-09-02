@@ -24,8 +24,8 @@ ActiveRecord::Schema.define(version: 2021_09_02_143132) do
 
   create_table "gigs", force: :cascade do |t|
     t.string "name"
-    t.datetime "start"
-    t.datetime "end"
+    t.datetime "starts_at"
+    t.datetime "ends_at"
     t.string "description"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
