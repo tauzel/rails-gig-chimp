@@ -5,7 +5,7 @@ class Gig < ApplicationRecord
   has_one :review
 
   validates :name, presence: true
-  validates :start, presence: true
-  validates :end, presence: true
+  validates :starts_at, presence: true
+  validates :ends_at, presence: true
   validates :description, presence: true
 end
