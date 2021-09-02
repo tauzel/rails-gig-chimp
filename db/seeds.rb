@@ -144,7 +144,7 @@ puts "---------------------------------------------------------------"
   end_date = start_date + rand(5..10).days
   description = Faker::Quote.famous_last_words
 
-  Gig.create!(user_id: master_id, name: name, start: start_date, end: end_date, description: description)
+  Gig.create!(user_id: master_id, name: name, starts_at: start_date, ends_at: end_date, description: description)
   puts "Created gig #{name}"
 end
 
