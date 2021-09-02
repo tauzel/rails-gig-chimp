@@ -1,6 +1,7 @@
 <div class="container mt-3">
-
+  <br>
   <h1><%= current_user.name %>'s gigs</h1>
+  <br>
   <ul class="list-group">
     <% @gigs.each do |gig| %>
 
@@ -44,4 +45,6 @@
 
   <% end %>
   </ul>
+  <br>
+  <%= link_to 'Go Back', root_path, class: 'btn btn-light' %>
 </div>
