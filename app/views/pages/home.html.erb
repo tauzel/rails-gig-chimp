@@ -28,12 +28,12 @@
                 </div>
 
               </div>
-              <p class="text-muted">Batch #<%= student.batch %></p>
-              <p>
+              <span class="text-muted small">Batch #<%= student.batch %></span>
+              <div>
                 <% student.skills.each do |skill| %>
                   <span class="badge rounded-pill bg-light lighter-text"><%= skill.name %></span>
                 <% end %>
-              </p>
+              </div>
             </div>
         </div>
       </div>
