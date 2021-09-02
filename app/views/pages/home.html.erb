@@ -17,17 +17,17 @@
       <div class="col col-12 col-md-6 col-lg-4">
         <div class="card-product position-relative" data-student-id=<%= student.id %>>
             <%= image_tag student.picture_url, alt: "", class: "rounded"%>
-            <div class="card-product-infos d-flex flex-column justify-content-between">
-              <h2>
-                <%= student.name %>
+            <div class="card-product-infos d-flex flex-column flex-grow-1 justify-content-between">
+              <div class="d-flex justify-content-between align-items-top">
+                <h2><%= student.name %></h2>
                 <%= link_to student_path(student.id), method: :get, class: '' do %>
-                  <i class="far fa-eye ml-3"></i>
+                  <i class="far fa-eye ml-3 pr-3"></i>
                 <% end %>
-              </h2>
+              </div>
               <p class="text-muted">Batch #<%= student.batch %></p>
               <p>
                 <% student.skills.each do |skill| %>
-                  <span class="badge rounded-pill bg-secondary text-light"><%= skill.name %></span>
+                  <span class="badge rounded-pill bg-light lighter-text"><%= skill.name %></span>
                 <% end %>
               </p>
             </div>
