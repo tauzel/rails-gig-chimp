@@ -61,8 +61,10 @@ puts "---------------------------------------------------------------"
 puts "-- Populating new skills... -----------------------------------"
 puts "---------------------------------------------------------------"
 
+skills = %w(ruby rails php react vue.js php java javascript node.js swift)
+
 20.times do
-  skill = Faker::ProgrammingLanguage.unique.name
+  skill = skills.sample
   Skill.create!(name: skill)
   puts "Created skill #{skill}"
 end
