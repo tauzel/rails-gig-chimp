@@ -8,6 +8,12 @@ class StudentsController < ApplicationController
       @students = Student.available(params[:starts_at], params[:ends_at])
     else
       @students = Student.all
+      @markers = @students.geocoded.map do |flat|
+      {
+        lat: flat.latitude,
+        lng: flat.longitude
+      }
+      end
     end
   end
 
