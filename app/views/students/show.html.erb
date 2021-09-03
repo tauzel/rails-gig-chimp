@@ -1,13 +1,1 @@
-<div class="container">
-  <br>
-  <h2 class="title"><%= @student.name %></h2>
-  <div class="js-student-body">
-    <%= image_tag @student.picture_url, alt: '', class: 'avatar-larger'%>
-    <p class="text-secondary">Batch #<%= @student.batch %></p>
-    <% @student.skills.each do |skill| %>
-      <span class="badge rounded-pill bg-light lighter-text"><%= skill.name %></span>
-    <% end %>
-    <p class="text-secondary"><%= @student.description %></p>
-  </div>
-  <%= link_to 'Go back', root_path, class: 'btn btn-light' %>
-</div>
+<%= render 'shared/student_card', student: @student %>

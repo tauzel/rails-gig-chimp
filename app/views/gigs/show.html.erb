@@ -10,11 +10,11 @@
     <ul class="list-group">
 
       <li class="list-group-item d-flex justify-content-between align-items-center">
-        Start: <%= @gig.starts_at %>
+        Start: <%= @gig.starts_at.strftime("%a %-d %b %Y") %>
       </li>
 
       <li class="list-group-item d-flex justify-content-between align-items-center">
-        End: <%= @gig.ends_at %>
+        End: <%= @gig.ends_at.strftime("%a %-d %b %Y") %>
       </li>
 
       <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -22,12 +22,17 @@
       </li>
 
       <li class="list-group-item d-flex align-items-center">
-        <% @gig.students.each do |student| %>
 
-          <%= link_to student_path(student.id), method: :get, class: 'css_class' do %>
-            <%= image_tag student.picture_url, alt: '', class: 'avatar avatar-bordered mr-3'%>
+        <% if @gig.students.empty? %>
+          <%= link_to students_path, method: :get, class: '' do %>
+            + Add students
           <% end %>
-
+        <% else %>
+          <% @gig.students.each do |student| %>
+            <%= link_to student_path(student.id), method: :get, class: 'css_class' do %>
+              <%= image_tag student.picture_url, alt: '', class: 'avatar avatar-bordered mr-3'%>
+            <% end %>
+          <% end %>
         <% end %>
       </li>
     </ul>
