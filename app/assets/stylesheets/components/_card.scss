@@ -52,10 +52,15 @@
   color: #868686;
 }
 
+
 .hidden {
   display: none;
 }
 
 .card-product:hover .hidden {
   display: block;
+}
+
+.card-inner-links a {
+  color: gray;
 }
