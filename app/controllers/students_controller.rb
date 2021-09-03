@@ -1,12 +1,17 @@
 class StudentsController < ApplicationController
-  before_action :skip_pundit?, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [ :index, :show ]
+  before_action :skip_policy_scope, only: :index
+  before_action :skip_authorization, only: :show
 
   def index
-    @students = Student.all
+    if params[:starts_at].present? && params[:ends_at].present?
+      @students = Student.available(params[:starts_at], params[:ends_at])
+    else
+      @students = Student.all
+    end
   end
 
   def show
     @student = Student.find(params[:id])
-    authorize @student
   end
 end
