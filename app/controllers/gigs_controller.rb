@@ -1,7 +1,7 @@
 class GigsController < ApplicationController
   before_action :set_gig, only: [:show, :edit, :update, :destroy]
   before_action :build_students_array, only: [:new, :create]
-  skip_before_action :authenticate_user!, only: :new
+  # skip_before_action :authenticate_user!, only: :new
 
   def index
     @gigs = policy_scope(Gig)
