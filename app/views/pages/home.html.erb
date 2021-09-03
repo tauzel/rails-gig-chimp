@@ -18,20 +18,22 @@
         <div class="card-product position-relative" data-student-id=<%= student.id %>>
             <%= image_tag student.picture_url, alt: "", class: "rounded"%>
             <div class="card-product-infos d-flex flex-column flex-grow-1 justify-content-between">
-              <div class="d-flex justify-content-between align-items-top pr-3">
-                <h2><%= student.name %></h2>
 
-                <div class="card-inner-links">
-                  <%= link_to "https://github.com/#{student.username}", method: :get, target: '_blank' do %>
-                    <i class="fab fa-github"></i>
-                  <% end %>
-                  <%= link_to '', class: 'card-show-link', data: {
-                    toggle: "modal",
-                    target: "#cardModalStudentShow",
-                    student_id: student.id,
-                    } do %>
-                      <i class="far fa-eye"></i>
-                  <% end %>
+              <div class="d-flex card-student justify-content-between align-items-top">
+                <h2><%= student.name %></h2>
+                <div class="hidden">
+                  <div class="card-inner-links">
+                    <%= link_to "https://github.com/#{student.username}", method: :get, target: '_blank' do %>
+                      <i class="fab fa-github"></i>
+                    <% end %>
+                    <%= link_to '', class: 'card-show-link', data: {
+                      toggle: "modal",
+                      target: "#cardModalStudentShow",
+                      student_id: student.id,
+                      } do %>
+                        <i class="far fa-eye"></i>
+                    <% end %>
+                  </div>
                 </div>
 
               </div>
@@ -46,7 +48,6 @@
       </div>
     <% end %>
   </div>
-<<<<<<< HEAD
 </div>
 
 <%# -------------------------------------------------------------------------------------- %>
