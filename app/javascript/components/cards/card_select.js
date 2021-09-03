@@ -7,7 +7,6 @@ const initCardSelect = (cardDiv) => {
 
   // 0. Define event variables
   const createBtn = document.querySelector("#create-btn");
-  const createBtnBaseUrl = '/gigs/new?';
 
   // 1. toggle CSS class on the card
   // (used to build students array)
@@ -21,15 +20,29 @@ const initCardSelect = (cardDiv) => {
   })
 
   // 3. Update Create Btn's embedded url w/ selected students id
-  // rebuild url with studentsId
-  let createBtnUrl = createBtnBaseUrl;
+  // Build url with studentsId
+  let urlSuffix = '';
   if (studentsId) {
-    studentsId.forEach(id => createBtnUrl += `student_id[]=${id}&`);
+    studentsId.forEach(id => urlSuffix += `student_id[]=${id}&`);
     // remove ending '&' from url
-    createBtnUrl = createBtnUrl.slice(0, -1);
+    urlSuffix = urlSuffix.slice(0, -1);
   }
   // modify url sitting in the create button
-  createBtn.href = createBtnUrl;
+  if (createBtn) {
+    // if user on Home or Students page, modify url in create btn
+    createBtn.href = `/gigs/new?${urlSuffix}`;
+  } else {
+    // if user on Gigs/New modify current url
+    let currentUrl = window.location.href;
+    // if current url already has students -- add url suffix with '&'
+    if (currentUrl.includes('?') && currentUrl.includes('student_id')) {
+      currentUrl += `&${urlSuffix}`
+    } else if (currentUrl.includes('?')) {
+      currentUrl += urlSuffix
+    } else {
+      currentUrl += `?${urlSuffix}`
+    }
+  }
 
   // 4. Modify counter in header
   if (studentsId.length > 0) {

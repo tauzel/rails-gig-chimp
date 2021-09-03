@@ -4,6 +4,8 @@ const initModalShow = () => {
 
   const modalTitle = document.querySelector(".modal-title");
   const modalBody = document.querySelector(".modal-body");
+  console.log(document)
+  console.log(modalBody)
 
   // TODO -- convert to ES6 w/ Rails-Ajax lecture guidelines
   $('#cardModalStudentShow').on('show.bs.modal', function (event) {
@@ -24,7 +26,6 @@ const initModalShow = () => {
           alert('Error: ' + e);
         }
     });
-    console.log('All the way here')
   });
 };
 
