@@ -12,17 +12,28 @@
     <% end %>
   </div>
 
-  <div class="row" id="card-container">
+  <div class="row card-container">
     <% @students.sample(42).each do |student| %>
       <div class="col col-12 col-md-6 col-lg-4">
         <div class="card-product position-relative" data-student-id=<%= student.id %>>
             <%= image_tag student.picture_url, alt: "", class: "rounded"%>
             <div class="card-product-infos d-flex flex-column flex-grow-1 justify-content-between">
-              <div class="d-flex justify-content-between align-items-top">
+              <div class="d-flex justify-content-between align-items-top pr-3">
                 <h2><%= student.name %></h2>
-                <%= link_to student_path(student.id), method: :get, class: '' do %>
-                  <i class="far fa-eye ml-3 pr-2"></i>
-                <% end %>
+
+                <div class="card-inner-links">
+                  <%= link_to "https://github.com/#{student.username}", method: :get, target: '_blank' do %>
+                    <i class="fab fa-github"></i>
+                  <% end %>
+                  <%= link_to '', class: 'card-show-link', data: {
+                    toggle: "modal",
+                    target: "#cardModalStudentShow",
+                    student_id: student.id,
+                    } do %>
+                      <i class="far fa-eye"></i>
+                  <% end %>
+                </div>
+
               </div>
               <span class="text-muted small">Batch #<%= student.batch %></span>
               <div>
@@ -34,5 +45,36 @@
         </div>
       </div>
     <% end %>
+  </div>
+<<<<<<< HEAD
+</div>
+
+<%# -------------------------------------------------------------------------------------- %>
+<%# Bootstrap Modal ==> students/:id %>
+
+<div class="modal fade" id="cardModalStudentShow" tabindex="-1" role="dialog" aria-labelledby="cardModalStudentShowLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <div class="modal-header">
+
+        <h2 class="modal-title" id="cardModalStudentShowLabel">Title</h2>
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+
+      </div>
+
+      <div class="modal-body">
+
+        Modal content
+
+      </div>
+      <div class="modal-footer">
+        <%# <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> %>
+        <%# <button type="button" class="btn btn-primary">Send message</button> %>
+      </div>
+    </div>
   </div>
 </div>
