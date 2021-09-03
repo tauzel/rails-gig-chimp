@@ -1,0 +1,24 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://www.businessload.com/wp-content/uploads/2018/04/pexels-photo-380768.jpeg)">
+  <div class="container">
+  <h1>Pick Your Dates</h1>
+    <div class="d-flex justify-content-center dates-selection mt-5">
+      <%# <%= form_tag root_path(starts_at: params[:starts_at], ends_at: params[:ends_at]), method: :get do %>
+      <%= form_tag root_path, method: :get do %>
+      <div class="form-inline">
+      <%# <%= label_tag 'Starts' %>
+        <%= date_field_tag :starts_at,
+          params[:starts_at],
+          class: "form-control "
+        %>
+        <%= date_field_tag :ends_at,
+          params[:ends_at],
+          class: "form-control ml-3"
+        %>
+        <%= button_tag 'Go',
+          class: 'form-control ml-3'
+        %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
