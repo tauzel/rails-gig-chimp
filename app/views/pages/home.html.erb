@@ -1,16 +1,17 @@
 <div class="container">
-    <div class="d-flex justify-content-between mb-3 mt-3">
-      <div class="d-flex align-items-center">
-        <h1 class="mr-3">Build your team</h1>
-        <h2 id="counter"></h2>
-      </div>
-      <%= link_to new_gig_path,
-        method: :get,
-        id: 'create-btn',
-        class: 'btn-rainbow' do %>
-        Create
-      <% end %>
+  <%= render 'pages/dates_form' %>
+  <div class="d-flex justify-content-between mb-3 mt-3">
+    <div class="d-flex align-items-center">
+      <h1 class="mr-3">Pick your team</h1>
+      <h2 id="counter"></h2>
     </div>
+    <%= link_to new_gig_path,
+      method: :get,
+      id: 'create-btn',
+      class: 'btn-rainbow' do %>
+      Create
+    <% end %>
+  </div>
 </div>
 
 <div class="container">
