@@ -5,6 +5,10 @@ class StudentPolicy < ApplicationPolicy
     end
   end
 
+  def index
+    true
+  end
+
   def create?
     owner_or_admin?
   end

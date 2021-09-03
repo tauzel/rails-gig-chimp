@@ -5,6 +5,7 @@ const initModalShow = () => {
   const modalTitle = document.querySelector(".modal-title");
   const modalBody = document.querySelector(".modal-body");
 
+  // TODO -- convert to ES6 w/ Rails-Ajax lecture guidelines
   $('#cardModalStudentShow').on('show.bs.modal', function (event) {
     // NOTA BENE: Bootstrap modal uses ES5 syntax
     const button = $(event.relatedTarget) // Button that triggered the modal
