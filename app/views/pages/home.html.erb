@@ -20,6 +20,7 @@
             <div class="card-product-infos d-flex flex-column flex-grow-1 justify-content-between">
               <div class="d-flex justify-content-between align-items-top pr-3">
                 <h2><%= student.name %></h2>
+
                 <div class="card-inner-links">
                   <%= link_to "https://github.com/#{student.username}", method: :get, target: '_blank' do %>
                     <i class="fab fa-github"></i>
@@ -32,6 +33,7 @@
                       <i class="far fa-eye"></i>
                   <% end %>
                 </div>
+
               </div>
               <span class="text-muted small">Batch #<%= student.batch %></span>
               <div>
@@ -44,6 +46,7 @@
       </div>
     <% end %>
   </div>
+<<<<<<< HEAD
 </div>
 
 <%# -------------------------------------------------------------------------------------- %>
