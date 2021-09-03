@@ -16,7 +16,7 @@
     <% @students.sample(42).each do |student| %>
       <div class="col col-12 col-md-6 col-lg-4">
         <div class="card-product position-relative" data-student-id=<%= student.id %>>
-            <%= image_tag student.picture_url, alt: "", class: "rounded"%>
+            <%= image_tag (student.picture_url) if student.picture_url%>
             <div class="card-product-infos d-flex flex-column flex-grow-1 justify-content-between">
 
               <div class="d-flex card-student justify-content-between align-items-top pr-2">
