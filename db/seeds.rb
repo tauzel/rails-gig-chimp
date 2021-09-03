@@ -90,7 +90,7 @@ Student.create!(username: 'Ajguerra28', name: 'António Guerra', picture_url: 'h
 puts "Created masters as students: Henrique, Thierry, Pedro, Artur"
 
 50.times do |i|
-  name = Faker::Name.name
+  name = "#{Faker::Name.first_name} #{Faker::Name.last_name}"
   username = Faker::Internet.username(specifier: name)
   description = Faker::Hipster.paragraph(sentence_count: 3)
   picture = "https://kitt.lewagon.com/placeholder/users/random#{i}"
