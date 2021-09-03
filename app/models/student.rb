@@ -7,6 +7,9 @@ class Student < ApplicationRecord
   validates :username, presence: true, uniqueness: true
   validates :opt_in, presence: true
   validates :batch, numericality: {only_integer: true}
+  geocoded_by :location
+  after_validation :geocode, if: :will_save_change_to_location?
+
 
   # scope :available, -> { where(...) }
 
