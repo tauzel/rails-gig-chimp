@@ -42,6 +42,7 @@ const initCardSelect = (cardDiv) => {
     } else {
       currentUrl += `?${urlSuffix}`
     }
+    window.location.href = currentUrl
   }
 
   // 4. Modify counter in header
