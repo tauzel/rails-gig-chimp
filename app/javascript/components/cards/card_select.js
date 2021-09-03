@@ -21,7 +21,7 @@ const initCardSelect = (cardDiv) => {
 
   // 3. Update Create Btn's embedded url w/ selected students id
   // Build url with studentsId
-  let urlSuffix = '';
+  let urlSuffix = window.location.search === '' ? '?' : window.location.search + '&';
   if (studentsId) {
     studentsId.forEach(id => urlSuffix += `student_id[]=${id}&`);
     // remove ending '&' from url
@@ -30,7 +30,7 @@ const initCardSelect = (cardDiv) => {
   // modify url sitting in the create button
   if (createBtn) {
     // if user on Home or Students page, modify url in create btn
-    createBtn.href = `/gigs/new?${urlSuffix}`;
+    createBtn.href = `/gigs/new${urlSuffix}`;
   } else {
     // if user on Gigs/New modify current url
     let currentUrl = window.location.href;

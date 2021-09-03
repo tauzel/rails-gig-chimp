@@ -13,7 +13,7 @@ class GigsController < ApplicationController
 
   # GET /gigs/new
   def new
-    @gig = Gig.new
+    @gig = Gig.new(starts_at: params[:starts_at], ends_at: params[:ends_at])
     authorize @gig
   end
 
