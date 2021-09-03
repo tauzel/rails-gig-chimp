@@ -1,6 +1,5 @@
 <div class="card-product position-relative" data-student-id=<%= student.id %>>
-
-    <%= image_tag student.picture_url, alt: "", class: "rounded"%>
+<%= image_tag student.picture_url if student.picture_url %>
 
     <div class="card-product-infos d-flex flex-column flex-grow-1 justify-content-between">
 
