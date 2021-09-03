@@ -14,6 +14,7 @@ const initCardsFeatures = () => {
 
     // Target card
     const cardDiv = event.target.closest(".card-product");
+    console.log(cardDiv)
 
     // Target card inner link variable
     // --- null if clicked on rest of the card

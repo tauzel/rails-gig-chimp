@@ -1,6 +1,65 @@
 <div class="container">
   <br>
   <h1>New Gig</h1>
+  <br>
+
+  <div class="d-flex justify-content-between align-items-center">
+    <div>
+      <h3>💪 Your selection <%= "(#{@students.size})" unless @students.nil? %></h3>
+      <br>
+      <button class="card-show-link btn btn-light", data-toggle="modal", data-target="#cardModalStudents">
+      + Add Students
+      </button>
+    </div>
+    <div>
+      <% @students.each do |student| %>
+        <%= link_to "#", method: :get, class: 'ml-3' do %>
+          <%= image_tag student.picture_url, alt: '', class: 'avatar-large avatar-bordered' %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <br>
+
   <%= render 'form', gig: @gig %>
+
   <%= link_to 'Go Back', root_path, class: 'btn btn-light' %>
+</div>
+
+
+<%# -------------------------------------------------------------------------------------- %>
+<%# Bootstrap Modal ==> student select %>
+
+<div class="modal fade" id="cardModalStudents" tabindex="-1" role="dialog" aria-labelledby="cardModalStudentsLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <div class="modal-header">
+
+        <div class="d-flex">
+          <button class="modal-title btn btn-light add-btn" id="cardModalStudentsLabel">Add students</button>
+          <p id="counter"></p>
+        </div>
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+
+      </div>
+
+      <div class="modal-body">
+
+        <div class="card-container">
+          <% Student.available(@gig.starts_at, @gig.ends_at).first(10).each do |student| %>
+            <%= render 'shared/student_card', student: student  %>
+          <% end %>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-light add-btn">Add students</button>
+      </div>
+    </div>
+  </div>
 </div>
