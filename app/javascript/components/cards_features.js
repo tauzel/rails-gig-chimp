@@ -1,7 +1,7 @@
 import { linkClickSelector } from "@rails/ujs";
 
 import { initCardSelect } from './cards/card_select';
-import { initCardModal, initModalShow } from './cards/card_modal';
+import { initModalShow } from './cards/card_modal';
 
 const initCardsFeatures = () => {
 
@@ -20,7 +20,7 @@ const initCardsFeatures = () => {
     const cardInnerLinks = event.target.closest(".card-inner-links");
 
     if (cardInnerLinks) {
-      initModalShow(cardInnerLinks);
+      initModalShow();
     } else {
       initCardSelect(cardDiv);
     }

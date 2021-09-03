@@ -1,12 +1,30 @@
 import { linkClickSelector } from "@rails/ujs";
 
-const initModalShow = (cardInnerLinks) => {
-  // Retrieve student id
-  const studentId = cardInnerLinks.dataset["studentId"];
+const initModalShow = () => {
 
-  // Build student url with it
+  const modalTitle = document.querySelector(".modal-title");
+  const modalBody = document.querySelector(".modal-body");
 
-  console.log(studentId)
-}
+  $('#cardModalStudentShow').on('show.bs.modal', function (event) {
+    // NOTA BENE: Bootstrap modal uses ES5 syntax
+    const button = $(event.relatedTarget) // Button that triggered the modal
+    const studentId = button.data('studentId') // Extract info from data-* attributes
+    const urlStudentShow = `students/${studentId}` // Build url w/ data-attributes
+    // Extract students/:id inner HTML w/ Ajax
+    $.ajax({
+        url: urlStudentShow,
+        dataType: "html",
+        success: function(data) {
+          // hack from https://stackoverflow.com/questions/18938180/how-to-get-the-html-of-a-div-on-another-page-with-jquery-ajax/18938994
+          modalBody.innerHTML = $(data).find('.js-student-body')[0].innerHTML;
+          modalTitle.innerText = $(data).find('.title')[0].innerText
+        },
+        error: function(e) {
+          alert('Error: ' + e);
+        }
+    });
+    console.log('All the way here')
+  });
+};
 
 export { initModalShow };
